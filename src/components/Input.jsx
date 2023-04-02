@@ -1,6 +1,6 @@
-import React from 'react'
-import Attach from '../img/attach.svg'
-import AddImg from '../img/img.svg'
+import React from 'react';
+import Attach from '../img/attach.svg';
+import AddImg from '../img/img.svg';
 
 const Input = () => {
   return (

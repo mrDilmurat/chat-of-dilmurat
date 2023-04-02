@@ -1,3 +1,21 @@
+@mixin mobile {
+  @media screen and (max-width: 480px) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+@mixin laptop {
+  @media screen and (max-width: 1200px) {
+    @content;
+  }
+}
+
+// $darkColor: #2f2d;
+
 .formContainer {
   background-color: #a7bcff;
   height: 100vh;
@@ -83,10 +101,14 @@
     height: 80%;
     display: flex;
     overflow: hidden;
+    @include tablet {
+      width: 90%;
+    }
 
     .sidebar {
       flex: 1;
       background-color: #3e3c61;
+      position: relative;
 
       .navbar {
         display: flex;
@@ -99,6 +121,9 @@
 
         .logo {
           font-weight: bold;
+          @include tablet {
+            display: none;
+          }
         }
 
         .user {
@@ -118,6 +143,10 @@
             font-size: small;
             border: none;
             cursor: pointer;
+            @include tablet {
+             position: absolute;
+             bottom: 10px;
+            }
           }
         }
       }
@@ -169,7 +198,7 @@
     }
     .chat {
       flex: 2;
-      
+
       .chatInfo {
         height: 50px;
         background-color: #5d5b8d;
@@ -178,7 +207,7 @@
         justify-content: space-between;
         padding: 10px;
         color: lightgray;
-        
+
         .chatIcons {
           display: flex;
           gap: 10px;
@@ -198,7 +227,6 @@
           display: flex;
           gap: 20px;
           margin-bottom: 20px;
-          
 
           .messageInfo {
             display: flex;
@@ -230,17 +258,16 @@
           }
           &.owner {
             flex-direction: row-reverse;
-          .messageContent {
-            align-items: flex-end;
-            
-            p {
-              background-color: #8da4f1;
-              color: white;
-              border-radius: 10px 0px 10px 10px
+            .messageContent {
+              align-items: flex-end;
+
+              p {
+                background-color: #8da4f1;
+                color: white;
+                border-radius: 10px 0px 10px 10px;
+              }
             }
           }
-          }
-         
         }
       }
       .input {
